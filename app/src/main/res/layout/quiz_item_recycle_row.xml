@@ -6,8 +6,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:elevation="10dp"
-    app:cardCornerRadius="24dp">
-    
+    app:cardCornerRadius="24dp"
+    app:cardBackgroundColor="#FBD189">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,21 +19,23 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:orientation="vertical">
-            
+
             <TextView
+                android:id="@+id/quiz_title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/quiz_title_text"
+                android:fontFamily="@font/nunito"
                 android:text="Android"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
-            
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/quiz_subtitle_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/quiz_subtitle_text"
                 android:layout_marginTop="4dp"
-                android:text="All about Android OS"/>
+                android:fontFamily="@font/nunito"
+                android:text="All about Android OS" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -46,17 +49,18 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/icon_timer"
-                app:tint="@color/orange" />
-            
+                app:tint="#FFFFFF" />
+
             <TextView
+                android:id="@+id/quiz_time_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/quiz_time_text"
+                android:fontFamily="@font/nunito"
                 android:text="20 mins" />
 
         </LinearLayout>
-        
-        
+
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

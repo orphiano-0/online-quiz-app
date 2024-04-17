@@ -10,48 +10,51 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:src="@drawable/image_main" />
+        android:layout_height="260dp"
+        android:src="@drawable/triviatrove_logo" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_corner"
-        android:backgroundTint="@color/blue"
-        android:padding="8dp"
+        android:backgroundTint="#2B626D"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trivia App"
+            android:fontFamily="@font/nunito"
             android:gravity="center"
-            android:textSize="34sp"
             android:letterSpacing="0.1"
+            android:text="Welcome!"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lets play this awesome quiz app to enhance your knowledge"
-            android:gravity="center"
-            android:textSize="18sp"
             android:layout_margin="16dp"
+            android:fontFamily="@font/nunito"
+            android:gravity="center"
+            android:text="Let's play this awesome quiz app to enhance your knowledge"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="All items"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nunito"
+        android:text="All items"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -67,7 +70,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:id="@+id/recycler_view"/>
+            android:id="@+id/recycler_view"
+            />
 
     </RelativeLayout>
 
