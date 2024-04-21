@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
-            setupRecyclerView()
-        }
+                setupRecyclerView()
+            }
     }
 }

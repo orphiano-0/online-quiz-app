@@ -7,10 +7,12 @@ import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.online_quiz_app.databinding.ActivityQuizBinding
 import com.example.online_quiz_app.databinding.ScoreDialogBinding
+import com.google.firebase.database.FirebaseDatabase
 
 class QuizActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -130,5 +132,40 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
             .setView(dialogBinding.root)
             .setCancelable(false)
             .show()
+
+        getUserName(score)
+    }
+
+    private fun saveUserScoreToFirebase(userName: String, score: Int) {
+        val userScoreRef = FirebaseDatabase.getInstance().reference.child("user_scores")
+        val newUserScoreRef = userScoreRef.push()
+        val userScore = UserScore(userName, score)
+        newUserScoreRef.setValue(userScore)
+    }
+
+    private fun getUserName(score: Int) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Enter your name")
+        builder.setMessage("Please enter your name to record your score.")
+
+        val input = EditText(this)
+        builder.setView(input)
+
+        builder.setPositiveButton("OK") { dialog, which ->
+            val userName = input.text.toString()
+            // Check if the userName is empty
+            if (userName.isNotEmpty()) {
+                saveUserScoreToFirebase(userName, score)
+            } else {
+                // Show an error message if the userName is empty
+                Toast.makeText(this, "Your process will not be recorded", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, which ->
+            dialog.cancel()
+        }
+
+        builder.show()
     }
 }

@@ -17,3 +17,5 @@ data class QuestionModel(
 ){
     constructor() : this ("", emptyList(),"")
 }
+
+data class UserScore(val name: String, val score: Int)
