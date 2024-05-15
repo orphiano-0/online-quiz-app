@@ -1,0 +1,53 @@
+<!-- achievement_layout.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:layout_margin="8dp"
+    android:elevation="10dp"
+    android:padding="16dp">
+
+    <!-- Icon -->
+    <ImageView
+        android:id="@+id/achievementIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/icon_tt" />
+
+    <!-- Title and Subtitle -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/achievementTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Historian Troover"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/achievementSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Achievement Subtitle"
+            android:textSize="14sp"
+            android:textColor="@color/blue" />
+    </LinearLayout>
+
+    <!-- Check Icon for Achievement Accomplishment -->
+    <ImageView
+        android:id="@+id/checkIcon"
+        android:layout_width="24dp"
+        android:layout_height="21dp"
+        android:src="@drawable/achieved" />
+
+</LinearLayout>

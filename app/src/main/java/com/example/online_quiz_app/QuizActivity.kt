@@ -1,5 +1,6 @@
 package com.example.online_quiz_app
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.online_quiz_app.databinding.ActivityQuizBinding
@@ -19,6 +21,7 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         var questionModelList : List<QuestionModel> = listOf()
         var time : String = ""
+//        var category: String = ""
     }
 
     lateinit var binding : ActivityQuizBinding
@@ -38,6 +41,8 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
             btn3.setOnClickListener(this@QuizActivity)
             nextBtn.setOnClickListener(this@QuizActivity)
         }
+
+//        category = intent.getStringExtra("Category") ?: ""
 
         loadQuestions()
         startTimer()
@@ -100,7 +105,7 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
             }
             currentQuestionIndex++
             loadQuestions()
-        }else{
+        } else {
             //options button is clicked
             selectedAnswer = clickedBtn.text.toString()
             clickedBtn.setBackgroundColor(getColor(R.color.orange))
@@ -116,10 +121,10 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
             scoreProgressIndicator.progress = percentage
             scoreProgressText.text = "$percentage %"
             if(percentage>60){
-                scoreTitle.text = "Congrats! You have passed"
+                scoreTitle.text = "Congratulations! You've passed!"
                 scoreTitle.setTextColor(Color.BLUE)
-            }else{
-                scoreTitle.text = "Oops! You have failed"
+            } else {
+                scoreTitle.text = "Failed!"
                 scoreTitle.setTextColor(Color.RED)
             }
             scoreSubtitle.text = "$score out of $totalQuestions are correct"
@@ -144,15 +149,20 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getUserName(score: Int) {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Enter your name")
-        builder.setMessage("Please enter your name to record your score.")
+        val dialogBuilder = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.input_dialog, null)
+        dialogBuilder.setView(dialogView)
 
-        val input = EditText(this)
-        builder.setView(input)
+        val dialogTitle = dialogView.findViewById<TextView>(R.id.dialogTitle)
+        val dialogSubtitle = dialogView.findViewById<TextView>(R.id.dialogSubtitle)
+        val dialogInput = dialogView.findViewById<EditText>(R.id.dialogInput)
 
-        builder.setPositiveButton("OK") { dialog, which ->
-            val userName = input.text.toString()
+        dialogTitle.text = "Enter your name"
+        dialogSubtitle.text = "Please enter your name to record your score!" // Set your subtitle text here
+
+
+        dialogBuilder.setPositiveButton("OK") { dialog, which ->
+            val userName = dialogInput.text.toString()
             // Check if the userName is empty
             if (userName.isNotEmpty()) {
                 saveUserScoreToFirebase(userName, score)
@@ -162,10 +172,14 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
 
-        builder.setNegativeButton("Cancel") { dialog, which ->
+        dialogBuilder.setNegativeButton("Cancel") { dialog, which ->
             dialog.cancel()
         }
 
-        builder.show()
+        val alertDialog = dialogBuilder.create()
+        alertDialog.show()
+
     }
+
+
 }

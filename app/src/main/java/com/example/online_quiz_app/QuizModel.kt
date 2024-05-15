@@ -5,7 +5,7 @@ data class QuizModel(
     val title : String,
     val subtitle : String,
     val time : String,
-    val questionList : List<QuestionModel>
+    var questionList : List<QuestionModel>
 ){
     constructor() : this("","","","", emptyList())
 }
@@ -18,4 +18,14 @@ data class QuestionModel(
     constructor() : this ("", emptyList(),"")
 }
 
-data class UserScore(val name: String, val score: Int)
+data class UserScore(
+    val name: String,
+    val score: Int
+)
+
+data class Achievement(
+    val title: String,
+    val subtitle: String,
+    val iconUrl: String,
+    var achieved: Boolean
+)

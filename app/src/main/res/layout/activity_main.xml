@@ -8,10 +8,22 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/leaderboardbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Back"
+        android:src="@drawable/trophy" />
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="260dp"
-        android:src="@drawable/trivia_trove" />
+        android:layout_height="197dp"
+        android:src="@drawable/icon_tt" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,19 +71,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<!--        <ProgressBar-->
-<!--            android:layout_width="20dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:layout_centerInParent="true"-->
-<!--            android:visibility="gone"-->
-<!--            android:id="@+id/progress_bar"/>-->
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:id="@+id/recycler_view"
-            />
+            android:layout_marginTop="16dp" />
 
     </RelativeLayout>
 

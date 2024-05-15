@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".AchievementActivity">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="281dp"
+        android:layout_height="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:elevation="10dp"
+        android:src="@drawable/icon_tt" />
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Back"
+        android:src="@drawable/back_arrow" />
+
+    <!-- User's Name -->
+    <TextView
+        android:id="@+id/userNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="Troove's Name"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleAchievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userNameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Achievements"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Trophy Icons -->
+    <ImageView
+        android:id="@+id/trophyImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/logoImageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="58dp"
+        android:src="@drawable/icon_trophy"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/trophyImageView1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/logoImageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="58dp"
+        android:src="@drawable/icon_trophy"
+        android:contentDescription="@null" />
+
+    <!-- RecyclerView for Achievements -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/leaderboardRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleAchievement"
+        android:layout_marginTop="30dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/achievement_description" />
+
+</RelativeLayout>
